@@ -12,6 +12,9 @@ class CommandBusConfigurator implements CommandBusConfiguratorInterface
 
     public function define(string $commandClass, string $handlerClass): void
     {
+        if(array_key_exists($commandClass, $this->definitions)) {
+            throw new \Exception(sprintf('Command "%s" already defined!'.PHP_EOL.'Defined handler "%s", '.PHP_EOL.'current handler "%s".', $commandClass, $this->definitions[$commandClass], $handlerClass));
+        }
         $this->definitions[$commandClass] = $handlerClass;
     }
 
