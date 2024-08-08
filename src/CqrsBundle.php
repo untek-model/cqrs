@@ -15,5 +15,6 @@ class CqrsBundle extends AbstractBundle
     {
         $builder->registerForAutoconfiguration(CqrsHandlerInterface::class)
             ->addTag('cqrs.handler');
+        $container->import(__DIR__ . '/resources/config/services/main.php');
     }
 }
