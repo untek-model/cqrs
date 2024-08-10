@@ -3,10 +3,11 @@
 namespace Untek\Model\Cqrs;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
-use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 use Untek\Model\Cqrs\Application\Abstract\CqrsHandlerInterface;
+use Untek\Model\Cqrs\Infrastructure\DependencyInjection\CqrsExtension;
 
 class CqrsBundle extends AbstractBundle
 {
