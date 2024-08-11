@@ -7,9 +7,17 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 use Untek\Model\Cqrs\Application\Abstract\CqrsHandlerInterface;
 use Untek\Model\Cqrs\Infrastructure\DependencyInjection\CqrsExtension;
+use Untek\Model\Cqrs\Infrastructure\DependencyInjection\CqrsPass;
 
 class CqrsBundle extends AbstractBundle
 {
+
+    public function build(ContainerBuilder $container)
+    {
+        parent::build($container);
+
+        $container->addCompilerPass(new CqrsPass());
+    }
 
     public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
     {
